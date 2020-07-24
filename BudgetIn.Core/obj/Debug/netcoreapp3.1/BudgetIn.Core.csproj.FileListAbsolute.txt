@@ -1,0 +1,9 @@
+C:\Users\bkiyakov\source\repos\BudgetIn\BudgetIn.Core\bin\Debug\netcoreapp3.1\BudgetIn.Core.deps.json
+C:\Users\bkiyakov\source\repos\BudgetIn\BudgetIn.Core\bin\Debug\netcoreapp3.1\BudgetIn.Core.dll
+C:\Users\bkiyakov\source\repos\BudgetIn\BudgetIn.Core\bin\Debug\netcoreapp3.1\BudgetIn.Core.pdb
+C:\Users\bkiyakov\source\repos\BudgetIn\BudgetIn.Core\obj\Debug\netcoreapp3.1\BudgetIn.Core.csprojAssemblyReference.cache
+C:\Users\bkiyakov\source\repos\BudgetIn\BudgetIn.Core\obj\Debug\netcoreapp3.1\BudgetIn.Core.AssemblyInfoInputs.cache
+C:\Users\bkiyakov\source\repos\BudgetIn\BudgetIn.Core\obj\Debug\netcoreapp3.1\BudgetIn.Core.AssemblyInfo.cs
+C:\Users\bkiyakov\source\repos\BudgetIn\BudgetIn.Core\obj\Debug\netcoreapp3.1\BudgetIn.Core.csproj.CoreCompileInputs.cache
+C:\Users\bkiyakov\source\repos\BudgetIn\BudgetIn.Core\obj\Debug\netcoreapp3.1\BudgetIn.Core.dll
+C:\Users\bkiyakov\source\repos\BudgetIn\BudgetIn.Core\obj\Debug\netcoreapp3.1\BudgetIn.Core.pdb
