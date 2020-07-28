@@ -3,6 +3,7 @@ using BudgetIn.SharedKernel;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -51,6 +52,18 @@ namespace BudgetIn.Infrastructure.Data
 
         public async Task<bool> UpdateAsync(Expense expense)
         {
+            var local = _dbContext.Expenses.Local.FirstOrDefault(e => e.Id.Equals(expense.Id));
+
+            if (local != null)
+            {
+                // detach
+                _dbContext.Entry(local).State = EntityState.Detached;
+            }
+            else
+            {
+                return false;
+            }
+
             _dbContext.Entry(expense).State = EntityState.Modified;
 
             return (await _dbContext.SaveChangesAsync() != 0);

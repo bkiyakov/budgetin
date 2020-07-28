@@ -74,5 +74,51 @@ namespace BudgetIn.API.Api
 
             return Ok(expense);
         }
+
+        // PUT: api/Expense/{id}
+        [HttpPut("{id}:int")]
+        public async Task<IActionResult> Update([FromBody] ExpenseViewModel expenseViewModel, int id)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            if (await _repository.GetByIdAsync(id) == null) return NotFound();
+
+            Expense newExpense = new Expense()
+            {
+                Id = id,
+                Sum = expenseViewModel.Sum,
+                Note = expenseViewModel.Note,
+                CategoryId = expenseViewModel.CategoryId,
+                Date = expenseViewModel.Date,
+                //TODO изменить userId
+                UserId = "userid123123"
+
+            };
+
+            if (await _repository.UpdateAsync(newExpense))
+            {
+                return Ok();
+            } else
+            {
+                return StatusCode(500);
+            }
+        }
+
+        // DELETE: api/Expense/{id}
+        [HttpDelete("{id}:int")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            if (await _repository.GetByIdAsync(id) == null) return NotFound();
+
+            if (await _repository.DeleteByIdAsync(id))
+            {
+                return Ok();
+            } else
+            {
+                return StatusCode(500);
+            }
+        }
     }
 }
