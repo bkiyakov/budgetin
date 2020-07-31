@@ -88,6 +88,10 @@ namespace BudgetIn.Infrastructure.Migrations
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(32)")
+                        .HasMaxLength(32);
+
                     b.HasKey("Id");
 
                     b.ToTable("Logos");

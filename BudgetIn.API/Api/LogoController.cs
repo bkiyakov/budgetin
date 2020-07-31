@@ -31,7 +31,8 @@ namespace BudgetIn.API.Api
         public async Task<IActionResult> List()
         {
             var logos = await _repository.ListAsync();
-
+            
+            //TODO поменять на responseModel (во всех контроллерах)
             return Ok(logos);
         }
 
@@ -48,6 +49,7 @@ namespace BudgetIn.API.Api
 
             Logo logo = new Logo()
             {
+                Name = logoViewModel.Name,
                 IconUrl = logoViewModel.IconUrl
             };
 
@@ -61,10 +63,55 @@ namespace BudgetIn.API.Api
         // GET: api/Logo/{id}
         // ROLE admin
 
-        // PUT: api/Logo/{id}
-        // ROLE admin
-
         // DELETE: api/Logo/{id}
         // ROLE admin
+        [HttpDelete]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> Delete(int id)
+        {
+            Logo logo = await _repository.GetByIdAsync(id);
+
+            if (logo == null) return NotFound();
+
+            if (await _repository.DeleteAsync(logo))
+            {
+                return Ok();
+            } else
+            {
+                return StatusCode(500);
+            }
+        }
+
+        // PUT: api/Logo/{id}
+        // ROLE admin
+        [HttpPut]
+        [Consumes(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> Update([FromBody] LogoViewModel logoViewModel, int id)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            Logo logo = await _repository.GetByIdAsync(id);
+
+            if (logo == null) return NotFound();
+
+            logo.Name = logoViewModel.Name;
+            logo.IconUrl = logoViewModel.IconUrl;
+
+            if (await _repository.UpdateAsync(logo))
+            {
+                return Ok();
+            } else
+            {
+                return StatusCode(500);
+            }
+        }
+
+
     }
 }

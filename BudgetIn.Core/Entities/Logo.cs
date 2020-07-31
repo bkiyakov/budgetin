@@ -8,6 +8,8 @@ namespace BudgetIn.Core.Entities
 {
     public class Logo : BaseEntity
     {
+        [StringLength(32, ErrorMessage = "Не более 32 символов")]
+        public string Name { get; set; }
         [Required]
         [StringLength(256, ErrorMessage = "Не более 256 символов")]
         public string IconUrl { get; set; }
