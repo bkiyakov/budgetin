@@ -16,7 +16,7 @@ namespace BudgetIn.API.Api
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class ExpenseController : ControllerBase
     {
         private readonly IExpenseRepository _repository;
