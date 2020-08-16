@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "t2ouUrdC9rZ1G/NHica+qKJCQklCntnQP9WVizkScrcJfSBjBltcKWwaJ1TzKJWcBD0OXt3LrP4tsj/9AxjoCQ==",
+  "dgSpecHash": "d9askJJqfNLO8SnlKdfD45lx08e/OoiYNNCgssI23jVa5DD8Iv9z3C/8D+9bVTW9+OUhI2d/wM0L1y+PGAq7fQ==",
   "success": true,
   "projectFilePath": "D:\\Projects\\dotnet\\budgetin3\\budgetin\\BudgetIn.WebApi\\BudgetIn.WebApi.csproj",
   "expectedPackageFiles": [
@@ -46,6 +46,7 @@
     "C:\\Users\\Bjorn\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
     "C:\\Users\\Bjorn\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\Bjorn\\.nuget\\packages\\microsoft.openapi\\1.1.4\\microsoft.openapi.1.1.4.nupkg.sha512",
+    "C:\\Users\\Bjorn\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.9\\microsoft.visualstudio.azure.containers.tools.targets.1.10.9.nupkg.sha512",
     "C:\\Users\\Bjorn\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
     "C:\\Users\\Bjorn\\.nuget\\packages\\newtonsoft.json\\10.0.1\\newtonsoft.json.10.0.1.nupkg.sha512",
     "C:\\Users\\Bjorn\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",

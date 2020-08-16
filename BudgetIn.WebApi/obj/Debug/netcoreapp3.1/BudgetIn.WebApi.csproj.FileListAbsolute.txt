@@ -77,7 +77,4 @@ D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.WebApi\bin\Debug\netcoreapp3.1\Mi
 D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileSystemGlobbing.dll
 D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.WebApi\bin\Debug\netcoreapp3.1\BudgetIn.Infrastructure.dll
 D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.WebApi\bin\Debug\netcoreapp3.1\BudgetIn.Infrastructure.pdb
-D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.WebApi\obj\Debug\netcoreapp3.1\BudgetIn.WebApi.csproj.CoreCompileInputs.cache
-D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.WebApi\obj\Debug\netcoreapp3.1\BudgetIn.WebApi.MvcApplicationPartsAssemblyInfo.cs
-D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.WebApi\obj\Debug\netcoreapp3.1\BudgetIn.WebApi.MvcApplicationPartsAssemblyInfo.cache
 D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.WebApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
