@@ -10,7 +10,7 @@ namespace BudgetIn.Infrastructure.Data
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
-
+            Database.EnsureCreated();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -28,7 +28,7 @@ namespace BudgetIn.Infrastructure.Data
         public AppDbContext CreateDbContext(string[] args)
         {
             IConfigurationRoot configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
-                                                                         .AddJsonFile(@Directory.GetCurrentDirectory() + "/../BudgetIn.API/appsettings.json")
+                                                                         .AddJsonFile(@Directory.GetCurrentDirectory() + "/../BudgetIn.WebApi/appsettings.json")
                                                                          .Build();
             var builder = new DbContextOptionsBuilder<AppDbContext>();
             var connectionString = configuration.GetConnectionString("DatabaseConnection");

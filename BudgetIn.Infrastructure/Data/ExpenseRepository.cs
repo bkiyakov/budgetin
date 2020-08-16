@@ -1,5 +1,5 @@
 ﻿using BudgetIn.Core.Entities;
-using BudgetIn.SharedKernel;
+using BudgetIn.SharedKernel.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -40,14 +40,14 @@ namespace BudgetIn.Infrastructure.Data
 
         public async Task<Expense> GetByIdAsync(int id)
         {
-            Expense expense = await _dbContext.Expenses.Include(e => e.Category).SingleOrDefaultAsync(e => e.Id == id);
+            Expense expense = await _dbContext.Expenses.Include(e => e.Category).ThenInclude(c => c.Logo).SingleOrDefaultAsync(e => e.Id == id);
 
             return expense;
         }
 
         public async Task<List<Expense>> ListAsync()
         {
-            return await _dbContext.Expenses.Include(e => e.Category).OrderBy(e => e.Date).ToListAsync();
+            return await _dbContext.Expenses.Include(e => e.Category).ThenInclude(c => c.Logo).OrderBy(e => e.Date).ToListAsync();
         }
 
         public async Task<bool> UpdateAsync(Expense expense)

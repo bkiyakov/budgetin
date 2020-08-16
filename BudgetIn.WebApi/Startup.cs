@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BudgetIn.Infrastructure.Data;
+using BudgetIn.SharedKernel;
+using BudgetIn.SharedKernel.Interfaces;
 using BudgetIn.WebApi.Identity;
 using BudgetIn.WebApi.Identity.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -97,6 +100,10 @@ namespace BudgetIn.WebApi
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
+            services.AddDbContext<AppDbContext>(options =>
+               options.UseSqlServer(
+                   Configuration.GetConnectionString("DatabaseConnection")));
+
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
@@ -127,6 +134,11 @@ namespace BudgetIn.WebApi
                         ValidateIssuerSigningKey = true
                     };
                 });
+
+            // dependencies
+            services.AddScoped<IExpenseRepository, ExpenseRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<ILogoRepository, LogoRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BudgetIn.SharedKernel
+namespace BudgetIn.SharedKernel.Interfaces
 {
     public interface IExpenseRepository
     {

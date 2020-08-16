@@ -65,16 +65,15 @@ namespace BudgetIn.WebApi.Controllers
 
             User user = await _userManager.FindByNameAsync(model.Username);
 
-            if (user == null) return NotFound("Пользователь не найден");
-
-            if (await _userManager.CheckPasswordAsync(user, model.Password))
+            if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
                 string token = generateJwtToken(user);
 
                 return Ok(token);
+            } else
+            {
+                return BadRequest("Username or password is invalid");
             }
-
-            return BadRequest("Password is not valid");
         }
 
         // TODO Move to service class

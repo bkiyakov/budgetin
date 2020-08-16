@@ -1,0 +1,12 @@
+D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.SharedKernel\bin\Release\netcoreapp3.1\BudgetIn.SharedKernel.deps.json
+D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.SharedKernel\bin\Release\netcoreapp3.1\BudgetIn.SharedKernel.dll
+D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.SharedKernel\bin\Release\netcoreapp3.1\BudgetIn.SharedKernel.pdb
+D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.SharedKernel\bin\Release\netcoreapp3.1\BudgetIn.Core.dll
+D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.SharedKernel\bin\Release\netcoreapp3.1\BudgetIn.Core.pdb
+D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.SharedKernel\obj\Release\netcoreapp3.1\BudgetIn.SharedKernel.csprojAssemblyReference.cache
+D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.SharedKernel\obj\Release\netcoreapp3.1\BudgetIn.SharedKernel.AssemblyInfoInputs.cache
+D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.SharedKernel\obj\Release\netcoreapp3.1\BudgetIn.SharedKernel.AssemblyInfo.cs
+D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.SharedKernel\obj\Release\netcoreapp3.1\BudgetIn.SharedKernel.csproj.CoreCompileInputs.cache
+D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.SharedKernel\obj\Release\netcoreapp3.1\BudgetIn.SharedKernel.csproj.CopyComplete
+D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.SharedKernel\obj\Release\netcoreapp3.1\BudgetIn.SharedKernel.dll
+D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.SharedKernel\obj\Release\netcoreapp3.1\BudgetIn.SharedKernel.pdb

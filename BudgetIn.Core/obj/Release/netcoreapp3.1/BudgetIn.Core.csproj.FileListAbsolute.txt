@@ -1,0 +1,9 @@
+D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.Core\bin\Release\netcoreapp3.1\BudgetIn.Core.deps.json
+D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.Core\bin\Release\netcoreapp3.1\BudgetIn.Core.dll
+D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.Core\bin\Release\netcoreapp3.1\BudgetIn.Core.pdb
+D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.Core\obj\Release\netcoreapp3.1\BudgetIn.Core.csprojAssemblyReference.cache
+D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.Core\obj\Release\netcoreapp3.1\BudgetIn.Core.AssemblyInfoInputs.cache
+D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.Core\obj\Release\netcoreapp3.1\BudgetIn.Core.AssemblyInfo.cs
+D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.Core\obj\Release\netcoreapp3.1\BudgetIn.Core.csproj.CoreCompileInputs.cache
+D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.Core\obj\Release\netcoreapp3.1\BudgetIn.Core.dll
+D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.Core\obj\Release\netcoreapp3.1\BudgetIn.Core.pdb
