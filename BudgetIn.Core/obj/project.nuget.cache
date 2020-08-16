@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "D1uLtdb5HcytuanTbbR8dVVXyUmmjws6Tc9xZkkvC6plI+q28VGZD5I4fYdiTn66VQTdfdP4CQK58S/uHn6mEA==",
+  "dgSpecHash": "6SqK4sa1VTirkHw/prD/NhU/+DFKmZTGHAN1ws8bjNEncJt9RhFa8Mu6Y4yqs3W8W08aL78hDJv7HSEdT1O8og==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bkiyakov\\source\\repos\\BudgetIn\\BudgetIn.Core\\BudgetIn.Core.csproj",
+  "projectFilePath": "D:\\Projects\\dotnet\\budgetin3\\budgetin\\BudgetIn.Core\\BudgetIn.Core.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
