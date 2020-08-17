@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\dotnet\\budgetin3\\budgetin\\BudgetIn.SharedKernel\\BudgetIn.SharedKernel.csproj": {}
+    "C:\\Users\\bkiyakov\\Desktop\\Bjorn\\budgetin3\\budgetin\\BudgetIn.SharedKernel\\BudgetIn.SharedKernel.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\dotnet\\budgetin3\\budgetin\\BudgetIn.Core\\BudgetIn.Core.csproj": {
+    "C:\\Users\\bkiyakov\\Desktop\\Bjorn\\budgetin3\\budgetin\\BudgetIn.Core\\BudgetIn.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\dotnet\\budgetin3\\budgetin\\BudgetIn.Core\\BudgetIn.Core.csproj",
+        "projectUniqueName": "C:\\Users\\bkiyakov\\Desktop\\Bjorn\\budgetin3\\budgetin\\BudgetIn.Core\\BudgetIn.Core.csproj",
         "projectName": "BudgetIn.Core",
-        "projectPath": "D:\\Projects\\dotnet\\budgetin3\\budgetin\\BudgetIn.Core\\BudgetIn.Core.csproj",
-        "packagesPath": "C:\\Users\\Bjorn\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\dotnet\\budgetin3\\budgetin\\BudgetIn.Core\\obj\\",
+        "projectPath": "C:\\Users\\bkiyakov\\Desktop\\Bjorn\\budgetin3\\budgetin\\BudgetIn.Core\\BudgetIn.Core.csproj",
+        "packagesPath": "C:\\Users\\bkiyakov\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bkiyakov\\Desktop\\Bjorn\\budgetin3\\budgetin\\BudgetIn.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Bjorn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\bkiyakov\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -56,24 +57,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Projects\\dotnet\\budgetin3\\budgetin\\BudgetIn.SharedKernel\\BudgetIn.SharedKernel.csproj": {
+    "C:\\Users\\bkiyakov\\Desktop\\Bjorn\\budgetin3\\budgetin\\BudgetIn.SharedKernel\\BudgetIn.SharedKernel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\dotnet\\budgetin3\\budgetin\\BudgetIn.SharedKernel\\BudgetIn.SharedKernel.csproj",
+        "projectUniqueName": "C:\\Users\\bkiyakov\\Desktop\\Bjorn\\budgetin3\\budgetin\\BudgetIn.SharedKernel\\BudgetIn.SharedKernel.csproj",
         "projectName": "BudgetIn.SharedKernel",
-        "projectPath": "D:\\Projects\\dotnet\\budgetin3\\budgetin\\BudgetIn.SharedKernel\\BudgetIn.SharedKernel.csproj",
-        "packagesPath": "C:\\Users\\Bjorn\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\dotnet\\budgetin3\\budgetin\\BudgetIn.SharedKernel\\obj\\",
+        "projectPath": "C:\\Users\\bkiyakov\\Desktop\\Bjorn\\budgetin3\\budgetin\\BudgetIn.SharedKernel\\BudgetIn.SharedKernel.csproj",
+        "packagesPath": "C:\\Users\\bkiyakov\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bkiyakov\\Desktop\\Bjorn\\budgetin3\\budgetin\\BudgetIn.SharedKernel\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Bjorn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\bkiyakov\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -87,8 +89,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\Projects\\dotnet\\budgetin3\\budgetin\\BudgetIn.Core\\BudgetIn.Core.csproj": {
-                "projectPath": "D:\\Projects\\dotnet\\budgetin3\\budgetin\\BudgetIn.Core\\BudgetIn.Core.csproj"
+              "C:\\Users\\bkiyakov\\Desktop\\Bjorn\\budgetin3\\budgetin\\BudgetIn.Core\\BudgetIn.Core.csproj": {
+                "projectPath": "C:\\Users\\bkiyakov\\Desktop\\Bjorn\\budgetin3\\budgetin\\BudgetIn.Core\\BudgetIn.Core.csproj"
               }
             }
           }
@@ -116,7 +118,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

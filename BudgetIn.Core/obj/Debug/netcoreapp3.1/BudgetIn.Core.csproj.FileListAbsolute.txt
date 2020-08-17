@@ -16,3 +16,12 @@ D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.Core\obj\Debug\netcoreapp3.1\Budg
 D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.Core\obj\Debug\netcoreapp3.1\BudgetIn.Core.csproj.CoreCompileInputs.cache
 D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.Core\obj\Debug\netcoreapp3.1\BudgetIn.Core.dll
 D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.Core\obj\Debug\netcoreapp3.1\BudgetIn.Core.pdb
+C:\Users\bkiyakov\Desktop\Bjorn\budgetin3\budgetin\BudgetIn.Core\bin\Debug\netcoreapp3.1\BudgetIn.Core.deps.json
+C:\Users\bkiyakov\Desktop\Bjorn\budgetin3\budgetin\BudgetIn.Core\bin\Debug\netcoreapp3.1\BudgetIn.Core.dll
+C:\Users\bkiyakov\Desktop\Bjorn\budgetin3\budgetin\BudgetIn.Core\bin\Debug\netcoreapp3.1\BudgetIn.Core.pdb
+C:\Users\bkiyakov\Desktop\Bjorn\budgetin3\budgetin\BudgetIn.Core\obj\Debug\netcoreapp3.1\BudgetIn.Core.csprojAssemblyReference.cache
+C:\Users\bkiyakov\Desktop\Bjorn\budgetin3\budgetin\BudgetIn.Core\obj\Debug\netcoreapp3.1\BudgetIn.Core.AssemblyInfoInputs.cache
+C:\Users\bkiyakov\Desktop\Bjorn\budgetin3\budgetin\BudgetIn.Core\obj\Debug\netcoreapp3.1\BudgetIn.Core.AssemblyInfo.cs
+C:\Users\bkiyakov\Desktop\Bjorn\budgetin3\budgetin\BudgetIn.Core\obj\Debug\netcoreapp3.1\BudgetIn.Core.csproj.CoreCompileInputs.cache
+C:\Users\bkiyakov\Desktop\Bjorn\budgetin3\budgetin\BudgetIn.Core\obj\Debug\netcoreapp3.1\BudgetIn.Core.dll
+C:\Users\bkiyakov\Desktop\Bjorn\budgetin3\budgetin\BudgetIn.Core\obj\Debug\netcoreapp3.1\BudgetIn.Core.pdb
