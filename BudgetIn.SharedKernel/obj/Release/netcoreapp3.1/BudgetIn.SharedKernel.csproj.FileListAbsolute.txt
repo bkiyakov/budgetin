@@ -10,3 +10,15 @@ D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.SharedKernel\obj\Release\netcorea
 D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.SharedKernel\obj\Release\netcoreapp3.1\BudgetIn.SharedKernel.csproj.CopyComplete
 D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.SharedKernel\obj\Release\netcoreapp3.1\BudgetIn.SharedKernel.dll
 D:\Projects\dotnet\budgetin3\budgetin\BudgetIn.SharedKernel\obj\Release\netcoreapp3.1\BudgetIn.SharedKernel.pdb
+C:\Users\bkiyakov\Desktop\Bjorn\budgetin3\budgetin\BudgetIn.SharedKernel\bin\Release\netcoreapp3.1\BudgetIn.SharedKernel.deps.json
+C:\Users\bkiyakov\Desktop\Bjorn\budgetin3\budgetin\BudgetIn.SharedKernel\bin\Release\netcoreapp3.1\BudgetIn.SharedKernel.dll
+C:\Users\bkiyakov\Desktop\Bjorn\budgetin3\budgetin\BudgetIn.SharedKernel\bin\Release\netcoreapp3.1\BudgetIn.SharedKernel.pdb
+C:\Users\bkiyakov\Desktop\Bjorn\budgetin3\budgetin\BudgetIn.SharedKernel\bin\Release\netcoreapp3.1\BudgetIn.Core.dll
+C:\Users\bkiyakov\Desktop\Bjorn\budgetin3\budgetin\BudgetIn.SharedKernel\bin\Release\netcoreapp3.1\BudgetIn.Core.pdb
+C:\Users\bkiyakov\Desktop\Bjorn\budgetin3\budgetin\BudgetIn.SharedKernel\obj\Release\netcoreapp3.1\BudgetIn.SharedKernel.csprojAssemblyReference.cache
+C:\Users\bkiyakov\Desktop\Bjorn\budgetin3\budgetin\BudgetIn.SharedKernel\obj\Release\netcoreapp3.1\BudgetIn.SharedKernel.AssemblyInfoInputs.cache
+C:\Users\bkiyakov\Desktop\Bjorn\budgetin3\budgetin\BudgetIn.SharedKernel\obj\Release\netcoreapp3.1\BudgetIn.SharedKernel.AssemblyInfo.cs
+C:\Users\bkiyakov\Desktop\Bjorn\budgetin3\budgetin\BudgetIn.SharedKernel\obj\Release\netcoreapp3.1\BudgetIn.SharedKernel.csproj.CoreCompileInputs.cache
+C:\Users\bkiyakov\Desktop\Bjorn\budgetin3\budgetin\BudgetIn.SharedKernel\obj\Release\netcoreapp3.1\BudgetIn.SharedKernel.csproj.CopyComplete
+C:\Users\bkiyakov\Desktop\Bjorn\budgetin3\budgetin\BudgetIn.SharedKernel\obj\Release\netcoreapp3.1\BudgetIn.SharedKernel.dll
+C:\Users\bkiyakov\Desktop\Bjorn\budgetin3\budgetin\BudgetIn.SharedKernel\obj\Release\netcoreapp3.1\BudgetIn.SharedKernel.pdb
