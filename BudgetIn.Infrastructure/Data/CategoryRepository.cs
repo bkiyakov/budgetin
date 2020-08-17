@@ -42,16 +42,16 @@ namespace BudgetIn.Infrastructure.Data
             return (await _dbContext.SaveChangesAsync() != 0);
         }
 
-        public async Task<Category> GetByIdAsync(int id)
+        public async Task<Category> GetByIdAsync(int id, string userId)
         {
-            Category category = await _dbContext.Categories.Include(c => c.Logo).SingleOrDefaultAsync(c => c.Id.Equals(id));
+            Category category = await _dbContext.Categories.Where(c => c.UserId == userId || c.UserId == "system_user").Include(c => c.Logo).SingleOrDefaultAsync(c => c.Id.Equals(id));
 
             return category;
         }
 
-        public async Task<List<Category>> ListAsync()
+        public async Task<List<Category>> ListAsync(string userId)
         {
-            return await _dbContext.Categories.Include(c => c.Logo).ToListAsync();
+            return await _dbContext.Categories.Where(c => c.UserId == userId || c.UserId == "system_user").Include(c => c.Logo).ToListAsync();
         }
 
         public async Task<bool> UpdateAsync(Category category)

@@ -5,10 +5,12 @@ using System.Net.Mime;
 using System.Threading.Tasks;
 using BudgetIn.Core.Entities;
 using BudgetIn.SharedKernel.Interfaces;
+using BudgetIn.WebApi.Identity.Models;
 using BudgetIn.WebApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BudgetIn.WebApi.Controllers
@@ -19,17 +21,23 @@ namespace BudgetIn.WebApi.Controllers
     public class CategoryController : ControllerBase
     {
         private readonly ICategoryRepository _repository;
+        private readonly UserManager<User> _userManager;
 
-        public CategoryController(ICategoryRepository repository)
+        public CategoryController(ICategoryRepository repository, UserManager<User> userManager)
         {
             _repository = repository;
+            _userManager = userManager;
         }
 
         // GET: api/Category/
         [HttpGet]
         public async Task<IActionResult> List()
         {
-            var categories = await _repository.ListAsync();
+            var userId = _userManager.GetUserId(User);
+
+            if (userId == null) return StatusCode(401);
+
+            var categories = await _repository.ListAsync(userId);
 
             return Ok(categories);
         }
@@ -45,12 +53,15 @@ namespace BudgetIn.WebApi.Controllers
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
+            var userId = _userManager.GetUserId(User);
+
+            if (userId == null) return StatusCode(401);
+
             Category category = new Category()
             {
                 Name = categoryViewModel.Name,
                 LogoId = categoryViewModel.LogoId,
-                //TODO изменить userId
-                UserId = "userid123123"
+                UserId = userId
             };
 
             if (await _repository.AddAsync(category))
@@ -67,7 +78,11 @@ namespace BudgetIn.WebApi.Controllers
         [HttpGet("{id}:int")]
         public async Task<IActionResult> GetById(int id)
         {
-            Category category = await _repository.GetByIdAsync(id);
+            var userId = _userManager.GetUserId(User);
+
+            if (userId == null) return StatusCode(401);
+
+            Category category = await _repository.GetByIdAsync(id, userId);
 
             if (category == null) return NotFound();
 
@@ -75,19 +90,22 @@ namespace BudgetIn.WebApi.Controllers
         }
 
         // PUT: api/Category/{id}
-        [HttpPost("{id}:int")]
+        [HttpPut("{id}:int")]
         public async Task<IActionResult> Update([FromBody] CategoryViewModel categoryViewModel, int id)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            if (await _repository.GetByIdAsync(id) == null) return NotFound();
+            var userId = _userManager.GetUserId(User);
+
+            if (userId == null) return StatusCode(401);
+
+            if (await _repository.GetByIdAsync(id, userId) == null) return NotFound();
 
             Category category = new Category()
             {
                 Name = categoryViewModel.Name,
                 LogoId = categoryViewModel.LogoId,
-                //TODO изменить userId
-                UserId = "userid123123"
+                UserId = userId
             };
 
             if (await _repository.UpdateAsync(category))
