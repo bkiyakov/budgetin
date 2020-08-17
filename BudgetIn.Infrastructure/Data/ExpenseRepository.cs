@@ -38,16 +38,16 @@ namespace BudgetIn.Infrastructure.Data
             return (await _dbContext.SaveChangesAsync() != 0);
         }
 
-        public async Task<Expense> GetByIdAsync(int id)
+        public async Task<Expense> GetByIdAsync(int id, string userId)
         {
-            Expense expense = await _dbContext.Expenses.Include(e => e.Category).ThenInclude(c => c.Logo).SingleOrDefaultAsync(e => e.Id == id);
+            Expense expense = await _dbContext.Expenses.Where(e => e.UserId == userId).Include(e => e.Category).ThenInclude(c => c.Logo).SingleOrDefaultAsync(e => e.Id == id);
 
             return expense;
         }
 
-        public async Task<List<Expense>> ListAsync()
+        public async Task<List<Expense>> ListAsync(string userId)
         {
-            return await _dbContext.Expenses.Include(e => e.Category).ThenInclude(c => c.Logo).OrderBy(e => e.Date).ToListAsync();
+            return await _dbContext.Expenses.Where(e => e.UserId == userId).Include(e => e.Category).ThenInclude(c => c.Logo).OrderBy(e => e.Date).ToListAsync();
         }
 
         public async Task<bool> UpdateAsync(Expense expense)

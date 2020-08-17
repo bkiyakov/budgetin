@@ -3,10 +3,12 @@ using System.Threading.Tasks;
 using BudgetIn.Core.Entities;
 using BudgetIn.SharedKernel;
 using BudgetIn.SharedKernel.Interfaces;
+using BudgetIn.WebApi.Identity.Models;
 using BudgetIn.WebApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
@@ -21,10 +23,12 @@ namespace BudgetIn.WebApi.Controllers
     public class ExpenseController : ControllerBase
     {
         private readonly IExpenseRepository _repository;
+        private readonly UserManager<User> _userManager;
 
-        public ExpenseController(IExpenseRepository repository)
+        public ExpenseController(IExpenseRepository repository, UserManager<User> userManager)
         {
             _repository = repository;
+            _userManager = userManager;
         }
 
         /// <summary>
@@ -35,7 +39,11 @@ namespace BudgetIn.WebApi.Controllers
         [HttpGet]
         public async Task<IActionResult> List()
         {
-            var expenses = await _repository.ListAsync();
+            var userId = _userManager.GetUserId(User);
+
+            if (userId == null) return StatusCode(401);
+
+            var expenses = await _repository.ListAsync(userId);
 
             return Ok(expenses);
         }
@@ -56,14 +64,17 @@ namespace BudgetIn.WebApi.Controllers
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
+            var userId = _userManager.GetUserId(User);
+
+            if (userId == null) return StatusCode(401);
+
             Expense newExpense = new Expense()
             {
                 Sum = expenseViewModel.Sum,
                 Note = expenseViewModel.Note,
                 CategoryId = expenseViewModel.CategoryId,
                 Date = expenseViewModel.Date,
-                //TODO изменить userId
-                UserId = "userid123123"
+                UserId = userId
 
             };
 
@@ -86,7 +97,11 @@ namespace BudgetIn.WebApi.Controllers
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById(int id)
         {
-            Expense expense = await _repository.GetByIdAsync(id);
+            var userId = _userManager.GetUserId(User);
+
+            if (userId == null) return StatusCode(401);
+
+            Expense expense = await _repository.GetByIdAsync(id, userId);
 
             if (expense == null) return NotFound();
 
@@ -105,7 +120,11 @@ namespace BudgetIn.WebApi.Controllers
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            if (await _repository.GetByIdAsync(id) == null) return NotFound();
+            var userId = _userManager.GetUserId(User);
+
+            if (userId == null) return StatusCode(401);
+
+            if (await _repository.GetByIdAsync(id, userId) == null) return NotFound();
 
             Expense newExpense = new Expense()
             {
@@ -114,8 +133,7 @@ namespace BudgetIn.WebApi.Controllers
                 Note = expenseViewModel.Note,
                 CategoryId = expenseViewModel.CategoryId,
                 Date = expenseViewModel.Date,
-                //TODO изменить userId
-                UserId = "userid123123"
+                UserId = userId
 
             };
 
@@ -137,7 +155,11 @@ namespace BudgetIn.WebApi.Controllers
         [HttpDelete("{id}:int")]
         public async Task<IActionResult> Delete(int id)
         {
-            if (await _repository.GetByIdAsync(id) == null) return NotFound();
+            var userId = _userManager.GetUserId(User);
+
+            if (userId == null) return StatusCode(401);
+
+            if (await _repository.GetByIdAsync(id, userId) == null) return NotFound();
 
             if (await _repository.DeleteByIdAsync(id))
             {

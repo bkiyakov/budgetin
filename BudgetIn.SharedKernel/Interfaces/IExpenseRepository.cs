@@ -8,8 +8,8 @@ namespace BudgetIn.SharedKernel.Interfaces
 {
     public interface IExpenseRepository
     {
-        Task<Expense> GetByIdAsync(int id);
-        Task<List<Expense>> ListAsync();
+        Task<Expense> GetByIdAsync(int id, string userId);
+        Task<List<Expense>> ListAsync(string userId);
         Task<bool> AddAsync(Expense expense);
         Task<bool> UpdateAsync(Expense expense);
         Task<bool> DeleteAsync(Expense expense);

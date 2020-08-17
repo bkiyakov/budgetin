@@ -87,7 +87,7 @@ namespace BudgetIn.WebApi.Controllers
             {
                 Issuer = AuthOptions.ISSUER,
                 Audience = AuthOptions.AUDIENCE,
-                Subject = new ClaimsIdentity(new[] { new Claim("id", user.Id.ToString()) }),
+                Subject = new ClaimsIdentity(new[] { new Claim(ClaimTypes.NameIdentifier, user.Id) }),
                 Expires = DateTime.UtcNow.AddMinutes(AuthOptions.LIFETIME),
                 SigningCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature)
             };
