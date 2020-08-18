@@ -107,7 +107,8 @@ namespace BudgetIn.WebApi.Controllers
             if (await _repository.UpdateAsync(logo))
             {
                 return Ok();
-            } else
+            }
+            else
             {
                 return StatusCode(500);
             }

@@ -56,13 +56,14 @@ namespace BudgetIn.Infrastructure.Data
 
         public async Task<bool> UpdateAsync(Category category)
         {
-            Category local = _dbContext.Categories.Local.FirstOrDefault(c => c.Id.Equals(category.Id));
+            var local = _dbContext.Categories.Local.FirstOrDefault(c => c.Id.Equals(category.Id));
 
             if (local != null)
             {
                 // detach
                 _dbContext.Entry(local).State = EntityState.Detached;
-            } else
+            }
+            else
             {
                 return false;
             }

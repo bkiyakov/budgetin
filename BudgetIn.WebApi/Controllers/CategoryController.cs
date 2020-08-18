@@ -103,6 +103,7 @@ namespace BudgetIn.WebApi.Controllers
 
             Category category = new Category()
             {
+                Id = id,
                 Name = categoryViewModel.Name,
                 LogoId = categoryViewModel.LogoId,
                 UserId = userId
@@ -119,5 +120,25 @@ namespace BudgetIn.WebApi.Controllers
         }
 
         // DELETE: api/Category/{id}
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var userId = _userManager.GetUserId(User);
+
+            if (userId == null) return StatusCode(401);
+
+            var category = await _repository.GetByIdAsync(id, userId);
+
+            if (category == null) return NotFound();
+
+            if (await _repository.DeleteAsync(category))
+            {
+                return Ok();
+            }
+            else
+            {
+                return StatusCode(500);
+            }
+        }
     }
 }
