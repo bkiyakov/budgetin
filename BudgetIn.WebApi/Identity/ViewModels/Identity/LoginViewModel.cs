@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BudgetIn.WebApi.Identity.ViewModels
 {
-    public class GetTokenViewModel
+    public class LoginViewModel
     {
         [Required]
         public string Username { get; set; }

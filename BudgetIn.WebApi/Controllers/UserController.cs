@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using BudgetIn.WebApi.Identity;
 using BudgetIn.WebApi.Identity.Models;
 using BudgetIn.WebApi.Identity.ViewModels;
+using BudgetIn.WebApi.Identity.ViewModels.Identity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -20,10 +21,12 @@ namespace BudgetIn.WebApi.Controllers
     public class UserController : ControllerBase
     {
         private readonly UserManager<User> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public UserController(UserManager<User> userManager)
+        public UserController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
+            _roleManager = roleManager;
         }
 
         [HttpPost]
@@ -59,7 +62,7 @@ namespace BudgetIn.WebApi.Controllers
 
         [HttpPost]
         [Route("Login")]
-        public async Task<IActionResult> GetToken([FromBody] GetTokenViewModel model)
+        public async Task<IActionResult> GetToken([FromBody] LoginViewModel model)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
@@ -69,7 +72,17 @@ namespace BudgetIn.WebApi.Controllers
             {
                 string token = generateJwtToken(user);
 
-                return Ok(token);
+                IList<string> userRoles = await _userManager.GetRolesAsync(user);
+
+                return Ok(new LoginResponseModel()
+                {
+                    User = new LoginResponseModel.UserObject()
+                    {
+                        Username = user.UserName,
+                        Role = userRoles.First()
+                    },
+                    JWT = token
+                });
             } else
             {
                 return BadRequest("Username or password is invalid");

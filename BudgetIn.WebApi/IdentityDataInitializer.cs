@@ -49,7 +49,7 @@ namespace BudgetIn.WebApi
                     Birthday = new DateTimeOffset(new DateTime(1994, 6, 30))
                 };
 
-                IdentityResult result = userManager.CreateAsync(user, "strong.passw0rd#@112233").Result;
+                IdentityResult result = userManager.CreateAsync(user, "Strong.Passw0rd#@112233").Result;
 
                 if (result.Succeeded)
                 {
