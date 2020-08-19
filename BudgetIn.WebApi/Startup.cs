@@ -139,6 +139,11 @@ namespace BudgetIn.WebApi
             services.AddScoped<IExpenseRepository, ExpenseRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<ILogoRepository, LogoRepository>();
+
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -163,6 +168,8 @@ namespace BudgetIn.WebApi
                 // To serve the Swagger UI at the app's root (http://localhost:<port>/), set the RoutePrefix property to an empty string:
                 //c.RoutePrefix = string.Empty;
             });
+
+            app.UseCors(options => options.AllowAnyOrigin());
 
             app.UseRouting();
 

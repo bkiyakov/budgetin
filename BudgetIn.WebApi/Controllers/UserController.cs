@@ -81,7 +81,7 @@ namespace BudgetIn.WebApi.Controllers
                         Username = user.UserName,
                         Role = userRoles.First()
                     },
-                    JWT = token
+                    Token = token
                 });
             } else
             {

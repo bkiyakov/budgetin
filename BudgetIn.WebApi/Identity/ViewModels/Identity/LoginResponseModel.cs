@@ -9,7 +9,7 @@ namespace BudgetIn.WebApi.Identity.ViewModels.Identity
     public class LoginResponseModel
     {
         public UserObject User { get; set; }
-        public string JWT { get; set; }
+        public string Token { get; set; }
         public class UserObject
         {
             public string Username { get; set; }
