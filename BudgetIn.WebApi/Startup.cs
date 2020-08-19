@@ -37,6 +37,9 @@ namespace BudgetIn.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddCors();
+
             services.AddControllers();
 
             // https://docs.microsoft.com/ru-ru/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-3.1&tabs=visual-studio
@@ -139,11 +142,6 @@ namespace BudgetIn.WebApi
             services.AddScoped<IExpenseRepository, ExpenseRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<ILogoRepository, LogoRepository>();
-
-            services.AddCors(c =>
-            {
-                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -169,9 +167,9 @@ namespace BudgetIn.WebApi
                 //c.RoutePrefix = string.Empty;
             });
 
-            app.UseCors(options => options.AllowAnyOrigin());
-
             app.UseRouting();
+
+            app.UseCors(options => options.AllowAnyOrigin());
 
             app.UseAuthentication(); // Подключение аутентификации
             app.UseAuthorization();

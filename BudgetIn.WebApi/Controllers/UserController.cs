@@ -18,6 +18,7 @@ namespace BudgetIn.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Consumes("application/json")]
     public class UserController : ControllerBase
     {
         private readonly UserManager<User> _userManager;
