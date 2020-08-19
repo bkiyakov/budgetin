@@ -58,7 +58,7 @@ namespace BudgetIn.WebApi.Controllers
         }
 
         [HttpPost]
-        [Route("Token")]
+        [Route("Login")]
         public async Task<IActionResult> GetToken([FromBody] GetTokenViewModel model)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
