@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "S90LyPI3yNXlhj+wr68lRq6a+eEWcS35IshYv+rk90PZ2ex96ilbmxNWB8HmWE02TdW8bJkmnkj5tIqf1ZMgzw==",
+  "dgSpecHash": "PbZj+ot5Thipqoamubz5JSCjlD6Y5FxWFOa8KvqCtFjAzU1ULnK8Xq1XFdez5eLmHRvbW2/1KDDXviP4K+gAqw==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\dotnet\\budgetin3\\budgetin\\BudgetIn.SharedKernel\\BudgetIn.SharedKernel.csproj",
+  "projectFilePath": "C:\\Users\\bkiyakov\\Desktop\\Bjorn\\budgetin3\\budgetin\\BudgetIn.SharedKernel\\BudgetIn.SharedKernel.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

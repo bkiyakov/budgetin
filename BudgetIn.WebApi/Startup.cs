@@ -169,7 +169,12 @@ namespace BudgetIn.WebApi
 
             app.UseRouting();
 
-            app.UseCors(options => options.AllowAnyOrigin());
+            // TODO Настроить правильно
+            app.UseCors(options => 
+            {
+                options.AllowAnyOrigin();
+                options.AllowAnyHeader();
+            });
 
             app.UseAuthentication(); // Подключение аутентификации
             app.UseAuthorization();

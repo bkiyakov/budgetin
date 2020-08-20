@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Net.Mime;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +33,7 @@ namespace BudgetIn.WebApi.Controllers
 
         [HttpPost]
         [Route("Register")]
+        [Consumes(MediaTypeNames.Application.Json)]
         public async Task<IActionResult> Register([FromBody] RegisterViewModel model)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -63,6 +65,7 @@ namespace BudgetIn.WebApi.Controllers
 
         [HttpPost]
         [Route("Login")]
+        [Consumes(MediaTypeNames.Application.Json)]
         public async Task<IActionResult> GetToken([FromBody] LoginViewModel model)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
