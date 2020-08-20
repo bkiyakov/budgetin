@@ -29,9 +29,11 @@
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
+  <!--
   <ItemGroup>
     <Content Include="ClientApp\tsconfig.json" />
   </ItemGroup>
+  -->
 
   <ItemGroup>
     <None Include="README.md" />

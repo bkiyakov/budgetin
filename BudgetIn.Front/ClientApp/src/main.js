@@ -1,19 +1,18 @@
-import 'core-js/stable';
-import 'regenerator-runtime/runtime';
-import Vue from 'vue';
-import './plugins/axios';
-import vuetify from './plugins/vuetify';
-import App from './App.vue';
-import router from './router';
-import store from '@/store/index';
-import './registerServiceWorker';
-import dateFilter from '@/filters/date.filter';
-Vue.config.productionTip = false;
-Vue.filter('date', dateFilter);
+import Vue from 'vue'
+import App from './App.vue'
+import './registerServiceWorker'
+import router from './router'
+import store from './store'
+import Axios from 'axios'
+import 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+Vue.prototype.$http = Axios;
+
+Vue.config.productionTip = false
+
 new Vue({
-    vuetify,
-    router,
-    store,
-    render: (h) => h(App),
-}).$mount('#app');
-//# sourceMappingURL=main.js.map
+  router,
+  store,
+  render: h => h(App)
+}).$mount('#app')

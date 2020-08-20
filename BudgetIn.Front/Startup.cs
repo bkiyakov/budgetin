@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.SpaServices;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 using VueCliMiddleware;
 
 namespace BudgetIn.Front
@@ -20,6 +21,15 @@ namespace BudgetIn.Front
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient("budgetinapi", c =>
+            {
+                c.BaseAddress = new Uri(Configuration["ApiUrl"]);
+                // Github API versioning
+                c.DefaultRequestHeaders.Add("Content-Type", "application/json");
+                // Github requires a user-agent
+                //c.DefaultRequestHeaders.Add("User-Agent", "HttpClientFactory-Sample");
+            });
+
             services.AddControllersWithViews();
 
             // Add AddRazorPages if the app uses Razor Pages.
