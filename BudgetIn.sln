@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetIn.Infrastructure", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetIn.API", "BudgetIn.API\BudgetIn.API.csproj", "{2057B579-13B5-41FD-B0A2-E5491760030D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetIn.WebApi", "BudgetIn.WebApi\BudgetIn.WebApi.csproj", "{17923630-5F42-4BA7-8B98-DF7E7D4FD860}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetIn.WebApi", "BudgetIn.WebApi\BudgetIn.WebApi.csproj", "{17923630-5F42-4BA7-8B98-DF7E7D4FD860}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetIn.Front", "BudgetIn.Front\BudgetIn.Front.csproj", "{AECFF88B-11BF-4C62-9B93-53C514F50BBA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{17923630-5F42-4BA7-8B98-DF7E7D4FD860}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17923630-5F42-4BA7-8B98-DF7E7D4FD860}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17923630-5F42-4BA7-8B98-DF7E7D4FD860}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AECFF88B-11BF-4C62-9B93-53C514F50BBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AECFF88B-11BF-4C62-9B93-53C514F50BBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AECFF88B-11BF-4C62-9B93-53C514F50BBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AECFF88B-11BF-4C62-9B93-53C514F50BBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
