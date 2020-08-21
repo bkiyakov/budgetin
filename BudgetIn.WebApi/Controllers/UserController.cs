@@ -47,14 +47,31 @@ namespace BudgetIn.WebApi.Controllers
                 Birthday = model.Birthday
             };
 
-            var result = await _userManager.CreateAsync(user, model.Password);
+            var createResult = await _userManager.CreateAsync(user, model.Password);
 
-            if (result.Succeeded)
+            if(createResult.Succeeded)
             {
-                return StatusCode(201); // return Created()
-            } else
+                var createdUser = await _userManager.FindByNameAsync(user.UserName);
+
+                var addRoleResult = await _userManager.AddToRoleAsync(createdUser, "User");
+
+                if (addRoleResult.Succeeded)
+                {
+                    return StatusCode(201); // return Created()
+                }
+                else
+                {
+                    foreach (var error in addRoleResult.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+
+                    return StatusCode(500, ModelState);
+                }
+            }
+            else
             {
-                foreach (var error in result.Errors)
+                foreach (var error in createResult.Errors)
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }

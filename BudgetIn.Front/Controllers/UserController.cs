@@ -27,9 +27,28 @@ namespace BudgetIn.Front.Controllers
         [Route("Login")]
         public async Task<IActionResult> Login([FromBody] LoginViewModel model)
         {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
             var client = _clientFactory.CreateClient("budgetinapi");
 
             using var response = await client.PostAsync("User/Login", new StringContent(JsonSerializer.Serialize(model), Encoding.UTF8, "application/json"));
+
+            var content = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode) return Ok(content);
+
+            return BadRequest(); // TODO придумать что нибудь с этим
+        }
+
+        [HttpPost]
+        [Route("Register")]
+        public async Task<IActionResult> Register([FromBody] RegisterViewModel model)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            var client = _clientFactory.CreateClient("budgetinapi");
+
+            using var response = await client.PostAsync("User/Register", new StringContent(JsonSerializer.Serialize(model), Encoding.UTF8, "application/json"));
 
             var content = await response.Content.ReadAsStringAsync();
 
