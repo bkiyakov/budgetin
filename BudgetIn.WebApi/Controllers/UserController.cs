@@ -78,15 +78,17 @@ namespace BudgetIn.WebApi.Controllers
 
                 IList<string> userRoles = await _userManager.GetRolesAsync(user);
 
-                return Ok(new LoginResponseModel()
+                LoginResponseModel response = new LoginResponseModel()
                 {
                     User = new LoginResponseModel.UserObject()
                     {
                         Username = user.UserName,
-                        Role = userRoles.First()
+                        Role = userRoles.FirstOrDefault()
                     },
                     Token = token
-                });
+                };
+
+                return Ok(response);
             } else
             {
                 return BadRequest("Username or password is invalid");

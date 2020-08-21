@@ -29,7 +29,7 @@
         handleSubmit(e){
             e.preventDefault()
             if (this.password.length > 0) {
-            this.$http.post("/User/Login", {
+            this.$http.post("/api/User/Login", {
                 username: this.username,
                 password: this.password
               },

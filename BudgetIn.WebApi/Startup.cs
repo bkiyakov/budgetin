@@ -149,6 +149,8 @@ namespace BudgetIn.WebApi
         {
             if (env.IsDevelopment())
             {
+                var loggerFactory = LoggerFactory.Create(builder => builder.AddDebug());
+
                 app.UseDeveloperExceptionPage();
             }
 

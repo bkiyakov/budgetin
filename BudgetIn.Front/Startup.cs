@@ -4,7 +4,9 @@ using Microsoft.AspNetCore.SpaServices;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using System;
+using System.Net.Http.Headers;
 using VueCliMiddleware;
 
 namespace BudgetIn.Front
@@ -25,7 +27,7 @@ namespace BudgetIn.Front
             {
                 c.BaseAddress = new Uri(Configuration["ApiUrl"]);
                 // Github API versioning
-                c.DefaultRequestHeaders.Add("Content-Type", "application/json");
+                c.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 // Github requires a user-agent
                 //c.DefaultRequestHeaders.Add("User-Agent", "HttpClientFactory-Sample");
             });

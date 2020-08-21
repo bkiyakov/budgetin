@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using BudgetIn.Front.Models;
@@ -23,13 +24,16 @@ namespace BudgetIn.Front.Controllers
         }
 
         [HttpPost]
+        [Route("Login")]
         public async Task<IActionResult> Login([FromBody] LoginViewModel model)
         {
             var client = _clientFactory.CreateClient("budgetinapi");
 
-            using var response = await client.PostAsync("User/Login", new StringContent(JsonSerializer.Serialize(model)));
+            using var response = await client.PostAsync("User/Login", new StringContent(JsonSerializer.Serialize(model), Encoding.UTF8, "application/json"));
 
-            if (response.IsSuccessStatusCode) return Ok(response.Content);
+            var content = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode) return Ok(content);
 
             return BadRequest(); // TODO придумать что нибудь с этим
         }
