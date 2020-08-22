@@ -13,10 +13,10 @@
           <li class="nav-item">
             <a class="nav-link" href="/about">About</a>
           </li>
-          <li class="nav-item ml-auto" v-if="isLoggedIn">
-            <a class="nav-link" href="#" @click="logout">Logout</a>
-          </li>
         </ul>
+      </div>
+      <div class="nav-item float-right" v-if="isLoggedIn">
+        <a class="nav-link" href="#" @click="logout">Logout</a>
       </div>
     </nav>
     <!--<div id="nav">
