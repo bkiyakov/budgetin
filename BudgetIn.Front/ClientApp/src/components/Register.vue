@@ -47,64 +47,48 @@
 </template>
 
 <script>
-    export default {
+  export default {
     props : ["nextUrl"],
     data(){
-        return {
-          name : "",
-          email : "",
-          password : "",
-          passwordConfirm : "",
-          is_admin : null,
-          registred : false,
-          responseFailed: false,
-          errors: []
-        }
+      return {
+        name : "",
+        email : "",
+        password : "",
+        passwordConfirm : "",
+        is_admin : null,
+        registred : false,
+        responseFailed: false,
+        errors: []
+      }
     },
     methods : {
-        handleSubmit(e) {
-        e.preventDefault()
-        if (this.password === this.passwordConfirm && this.password.length > 0)
-        {
-            let url = "/api/User/Register"
-            
-            //if (this.is_admin != null || this.is_admin == 1) url = "http://localhost:3000/register-admin"
-            this.$http.post(url, {
-              email: this.email,
-              password: this.password,
-              passwordConfirm: this.passwordConfirm,
-              firstName: this.firstName,
-              lastName: this.lastName,
-              birthday: this.birthday
-              //is_admin: this.is_admin
-            })
-            .then(response => {
-              //localStorage.setItem('user', JSON.stringify(response.data.user));
-              //localStorage.setItem('jwt', response.data.token);
-              // if (localStorage.getItem('jwt') != null){
-              //   this.$emit('loggedIn');
-              //   if(this.$route.params.nextUrl != null){
-              //     this.$router.push(this.$route.params.nextUrl);
-              //   }
-              //   else{
-              //     this.$router.push('/');
-              //   }
-              // }
-              this.registred = true;
-              this.responseFailed = false;
-            })
-            .catch(error => {
-              this.registred = false;
-              this.responseFailed = true;
-              this.errors = error.response.data.Error.errors; // TODO Поменять на конкретное сообщение об ошибке
-              console.log(error.response.data.Error.errors);
-            });
+      handleSubmit(e) {
+        e.preventDefault();
+        if (this.password === this.passwordConfirm && this.password.length > 0){
+          this.$store.dispatch('register', {
+            email: this.email,
+            password: this.password,
+            passwordConfirm: this.passwordConfirm,
+            firstName: this.firstName,
+            lastName: this.lastName,
+            birthday: this.birthday
+          })
+          .then(() => {
+            this.registred = true;
+            this.responseFailed = false;
+          })
+          .catch(error => {
+            this.registred = false;
+            this.responseFailed = true;
+            this.errors = error.response.data.Error.errors; // TODO Поменять на конкретное сообщение об ошибке
+            console.log(error);
+          });
         } else {
-            this.password = ""
-            this.passwordConfirm = ""
-            return alert("Passwords do not match")
-        }
-        }
+            this.password = "";
+            this.passwordConfirm = "";
+            return alert("Passwords do not match");
+          }
+      }
     }
-    }
+  }
 </script>

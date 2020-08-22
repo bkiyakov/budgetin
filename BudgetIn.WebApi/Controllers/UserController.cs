@@ -109,7 +109,8 @@ namespace BudgetIn.WebApi.Controllers
                 return Ok(response);
             } else
             {
-                return BadRequest("Username or password is invalid");
+                ModelState.AddModelError("Username", "Username or password is invalid");
+                return BadRequest(ModelState);
             }
         }
 

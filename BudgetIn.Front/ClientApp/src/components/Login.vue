@@ -21,61 +21,81 @@
 </template>
 
 <script>
-    export default {
-        data(){
-        return {
-            username : "",
-            password : "",
-            errors: []
-        }
-        },
-        methods : {
-        handleSubmit(e){
-            e.preventDefault()
-            if (this.password.length > 0) {
-            this.$http.post("/api/User/Login", {
-                username: this.username,
-                password: this.password
-              },
-              {
-                headers: {
-                  // 'application/json' is the modern content-type for JSON, but some
-                  // older servers may use 'text/json'.
-                  // See: http://bit.ly/text-json
-                  'content-type': 'application/json'
-                }
-              }
-            )
-            .then(response => {
-              this.errors = [];
+  export default {
+    data(){
+      return {
+        username : "",
+        password : "",
+        errors: []
+      }
+    },
+    methods : {
+      handleSubmit(e){
+        e.preventDefault();
+        if (this.password.length > 0) {
+          this.$store.dispatch('login', {
+            username: this.username,
+            password: this.password
+          })
+          .then(()=>{
+            let is_admin = this.$store.getters.role == 'Administrator' ? true : false;
 
-              let is_admin = response.data.user.role == "Administrator" ? true : false;
-
-              localStorage.setItem('user',JSON.stringify(response.data.user));
-              localStorage.setItem('jwt',response.data.token);
-
-              if (localStorage.getItem('jwt') != null){
-                this.$emit('loggedIn');
-
-                if(this.$route.params.nextUrl != null){
-                  this.$router.push(this.$route.params.nextUrl);
-                }
-                else {
-                  if(is_admin == 1){
-                    this.$router.push('admin');
-                  }
-                  else {
-                    this.$router.push('dashboard');
-                  }
-                }
-              }
-            })
-            .catch(function (error) {
-                console.error(error.response);
-                this.errors = error.response.data.Error.errors;
-            });
+            if(this.$route.params.nextUrl != null){
+              this.$router.push(this.$route.params.nextUrl);
             }
+            else {
+              if(is_admin){
+                this.$router.push('admin');
+              }
+              else {
+                this.$router.push('dashboard');
+              }
+            }
+          })
+          .catch(err => console.log(err));
+          // this.$http.post("/api/User/Login", {
+          //     username: this.username,
+          //     password: this.password
+          //   },
+          //   {
+          //     headers: {
+          //       // 'application/json' is the modern content-type for JSON, but some
+          //       // older servers may use 'text/json'.
+          //       // See: http://bit.ly/text-json
+          //       'content-type': 'application/json'
+          //     }
+          //   }
+          // )
+          // .then(response => {
+          //   this.errors = [];
+
+          //   let is_admin = response.data.user.role == "Administrator" ? true : false;
+
+          //   localStorage.setItem('user',JSON.stringify(response.data.user));
+          //   localStorage.setItem('jwt',response.data.token);
+
+          //   if (localStorage.getItem('jwt') != null){
+          //     this.$emit('loggedIn');
+
+          //     if(this.$route.params.nextUrl != null){
+          //       this.$router.push(this.$route.params.nextUrl);
+          //     }
+          //     else {
+          //       if(is_admin == 1){
+          //         this.$router.push('admin');
+          //       }
+          //       else {
+          //         this.$router.push('dashboard');
+          //       }
+          //     }
+          //   }
+          // })
+          // .catch(function (error) {
+          //     console.error(error.response);
+          //     this.errors = error.response.data.Error.errors;
+          // });
         }
-        }
+      }
     }
+  }
 </script>
