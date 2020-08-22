@@ -54,7 +54,7 @@ namespace BudgetIn.Front.Controllers
 
             if (response.IsSuccessStatusCode) return Ok(content);
 
-            return BadRequest(); // TODO придумать что нибудь с этим
+            return BadRequest(content); // TODO придумать что нибудь с этим
         }
     }
 }

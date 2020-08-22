@@ -13,6 +13,7 @@ using BudgetIn.WebApi.Identity.ViewModels.Identity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.IdentityModel.Tokens;
 
 namespace BudgetIn.WebApi.Controllers
@@ -63,7 +64,7 @@ namespace BudgetIn.WebApi.Controllers
                 {
                     foreach (var error in addRoleResult.Errors)
                     {
-                        ModelState.AddModelError(string.Empty, error.Description);
+                        ModelState.AddModelError("Error", error.Description);
                     }
 
                     return StatusCode(500, ModelState);
@@ -73,7 +74,7 @@ namespace BudgetIn.WebApi.Controllers
             {
                 foreach (var error in createResult.Errors)
                 {
-                    ModelState.AddModelError(string.Empty, error.Description);
+                    ModelState.AddModelError("Error", error.Description);
                 }
 
                 return StatusCode(500, ModelState);

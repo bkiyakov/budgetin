@@ -14,6 +14,9 @@
         Login
       </button>
     </form>
+    <div v-if="this.errors.length > 0" class="container alert alert-danger">
+      <p v-for="error in errors" :key="error.errorMessage">error.errorMessage</p>
+    </div>
   </div>
 </template>
 
@@ -22,7 +25,8 @@
         data(){
         return {
             username : "",
-            password : ""
+            password : "",
+            errors: []
         }
         },
         methods : {
@@ -43,26 +47,32 @@
               }
             )
             .then(response => {
-                let is_admin = response.data.user.role == "Administrator" ? true : false;
-                localStorage.setItem('user',JSON.stringify(response.data.user))
-                localStorage.setItem('jwt',response.data.token)
-                if (localStorage.getItem('jwt') != null){
-                    this.$emit('loggedIn')
-                    if(this.$route.params.nextUrl != null){
-                    this.$router.push(this.$route.params.nextUrl)
-                    }
-                    else {
-                    if(is_admin== 1){
-                        this.$router.push('admin')
-                    }
-                    else {
-                        this.$router.push('dashboard')
-                    }
-                    }
+              this.errors = [];
+
+              let is_admin = response.data.user.role == "Administrator" ? true : false;
+
+              localStorage.setItem('user',JSON.stringify(response.data.user));
+              localStorage.setItem('jwt',response.data.token);
+
+              if (localStorage.getItem('jwt') != null){
+                this.$emit('loggedIn');
+
+                if(this.$route.params.nextUrl != null){
+                  this.$router.push(this.$route.params.nextUrl);
                 }
+                else {
+                  if(is_admin == 1){
+                    this.$router.push('admin');
+                  }
+                  else {
+                    this.$router.push('dashboard');
+                  }
+                }
+              }
             })
             .catch(function (error) {
                 console.error(error.response);
+                this.errors = error.response.data.Error.errors;
             });
             }
         }
