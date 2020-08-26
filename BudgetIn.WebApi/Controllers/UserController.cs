@@ -10,10 +10,14 @@ using BudgetIn.WebApi.Identity;
 using BudgetIn.WebApi.Identity.Models;
 using BudgetIn.WebApi.Identity.ViewModels;
 using BudgetIn.WebApi.Identity.ViewModels.Identity;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 namespace BudgetIn.WebApi.Controllers
@@ -92,7 +96,7 @@ namespace BudgetIn.WebApi.Controllers
 
             if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
-                string token = generateJwtToken(user);
+                string token = await generateJwtToken(user);
 
                 IList<string> userRoles = await _userManager.GetRolesAsync(user);
 
@@ -114,18 +118,30 @@ namespace BudgetIn.WebApi.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("List")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
+        public async Task<IActionResult> GetUsers()
+        {
+            return Ok(await _userManager.Users.ToListAsync());
+        }
+
         // TODO Move to service class
-        private string generateJwtToken(User user)
+        private async Task<string> generateJwtToken(User user)
         {
             // generate token that is valid for 7 days
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = AuthOptions.GetSymmetricSecurityKey();
+            var userRolesArray = (await _userManager.GetRolesAsync(user)).ToArray();
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Issuer = AuthOptions.ISSUER,
                 Audience = AuthOptions.AUDIENCE,
-                Subject = new ClaimsIdentity(new[] { new Claim(ClaimTypes.NameIdentifier, user.Id) }),
+                Subject = new ClaimsIdentity(new[] {
+                    new Claim(ClaimTypes.NameIdentifier, user.Id),
+                    new Claim(ClaimTypes.Role, userRolesArray.FirstOrDefault())
+                }),
                 Expires = DateTime.UtcNow.AddMinutes(AuthOptions.LIFETIME),
                 SigningCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature)
             };

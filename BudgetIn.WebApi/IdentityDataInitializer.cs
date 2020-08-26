@@ -1,5 +1,6 @@
 ﻿using BudgetIn.WebApi.Identity.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,19 +18,24 @@ namespace BudgetIn.WebApi
 
         public static void SeedUsers(UserManager<User> userManager)
         {
-            if (userManager.FindByNameAsync("testuser").Result == null)
+            string testUsername = Startup.staticConfiguration["TestUsername"];
+            string testPassword = Startup.staticConfiguration["TestPassword"];
+            string adminUsername = Startup.staticConfiguration["AdminUsername"];
+            string adminPassword = Startup.staticConfiguration["AdminPassword"];
+
+            if (userManager.FindByNameAsync(testUsername).Result == null)
             {
                 User user = new User()
                 {
-                    UserName = "testuser",
-                    Email = "testuser@localhost",
+                    UserName = testUsername,
+                    Email = testUsername + "@budgetin.com",
                     FirstName = "Test",
                     LastName = "Test",
                     Birthday = new DateTimeOffset(new DateTime(1996, 10, 6))
                 };
                 
 
-                IdentityResult result = userManager.CreateAsync(user, "Pwd12345.").Result;
+                IdentityResult result = userManager.CreateAsync(user, testPassword).Result;
 
                 if (result.Succeeded)
                 {
@@ -38,18 +44,18 @@ namespace BudgetIn.WebApi
             }
 
 
-            if (userManager.FindByNameAsync("budgetadmin").Result == null)
+            if (userManager.FindByNameAsync(adminUsername).Result == null)
             {
                 User user = new User()
                 {
-                    UserName = "budgetadmin",
-                    Email = "budgetadmin@localhost",
+                    UserName = adminUsername,
+                    Email = adminUsername + "@budgetin.com",
                     FirstName = "Admin",
                     LastName = "Admin",
                     Birthday = new DateTimeOffset(new DateTime(1994, 6, 30))
                 };
 
-                IdentityResult result = userManager.CreateAsync(user, "Strong.Passw0rd#@112233").Result;
+                IdentityResult result = userManager.CreateAsync(user, adminPassword).Result;
 
                 if (result.Succeeded)
                 {
